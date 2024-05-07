@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  hr {
+    @apply border-t border-gray-300 my-5 w-screen;
+  }
+}
+
 *,
 *::before,
 *::after {
