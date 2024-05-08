@@ -4,7 +4,18 @@
 
 @layer base {
   hr {
-    @apply border-t border-gray-300 my-5 w-screen;
+    @apply my-5 w-screen border-t border-gray-300;
+  }
+}
+
+@layer components {
+  .predefined {
+    @apply rounded-md bg-teal-500 px-4 py-2 text-lg font-semibold text-white transition delay-75 hover:bg-teal-600 active:bg-teal-400;
+  }
+}
+@layer directives {
+  .flex-center {
+    @apply flex items-center justify-center;
   }
 }
 

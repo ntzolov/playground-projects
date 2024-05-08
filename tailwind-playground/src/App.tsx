@@ -22,8 +22,8 @@ function App() {
       <hr />
 
       <section className="flex items-center gap-5">
-        <p className="text-lg text-orange-600">
-          How many times you can click me?
+        <p className="border-b-2 text-lg text-blue-600">
+          How many times can you click me?
         </p>
         <button
           className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
@@ -55,8 +55,8 @@ function App() {
 
       <hr />
 
-      <section className="flex justify-evenly">
-        <div className="size-10 bg-red-500"></div>
+      <section className="peer flex justify-evenly gap-5">
+        <div className="peer/red size-10 bg-red-500"></div>
         <div className="size-10 bg-yellow-500"></div>
         <div className="size-10 bg-blue-500"></div>
         <div className="size-10 bg-green-500"></div>
@@ -67,7 +67,18 @@ function App() {
         <div className="size-10 bg-black"></div>
         <div className="size-10 bg-slate-500"></div>
         <div className="size-10 bg-lime-500"></div>
+        <div className="hidden peer-hover/red:block">RED</div>
       </section>
+      <p className="mt-5 hidden text-lg peer-hover:block">
+        This is the whole group hovered
+      </p>
+
+      <hr />
+
+      <div className="flex items-center gap-10">
+        <p className="text-lg font-medium">Predefined components</p>
+        <button className="predefined">Click me!</button>
+      </div>
 
       <p className="mt-auto text-lg">
         Click on the Vite and React logos to learn more
