@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Movie } from "../types/movies";
 import StarTrekMovieCard from "./StarTrekMovieCard";
 
@@ -6,10 +6,6 @@ export default function StarTrekMovies() {
   const starTrekGetAllMoviesUrl = "http://stapi.co/api/v1/rest/movie/search";
   const [movies, setMovies] = useState<Movie[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
-
-  useEffect(() => {
-    console.log(favorites);
-  }, [favorites]);
 
   const handleGetMovies = (e: React.FormEvent) => {
     e.preventDefault();
