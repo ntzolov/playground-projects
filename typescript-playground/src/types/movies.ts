@@ -22,3 +22,8 @@ export interface Movie {
   usReleaseDate: string | null,
 }
 
+export interface MovieCardProps {
+  movie: Movie,
+  setFavorites: React.Dispatch<React.SetStateAction<string[]>>
+  favorites: string[]
+}

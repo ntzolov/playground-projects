@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Movie } from "../types/movies";
 import StarTrekMovieCard from "./StarTrekMovieCard";
 
 export default function StarTrekMovies() {
   const starTrekGetAllMoviesUrl = "http://stapi.co/api/v1/rest/movie/search";
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  useEffect(() => {
+    console.log(favorites);
+  }, [favorites]);
 
   const handleGetMovies = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +50,12 @@ export default function StarTrekMovies() {
           <h3>Star Trek Movies</h3>
           <ul className="flex flex-wrap justify-center gap-5">
             {movies.map((movie) => (
-              <StarTrekMovieCard key={movie.uid} movie={movie} />
+              <StarTrekMovieCard
+                setFavorites={setFavorites}
+                favorites={favorites}
+                key={movie.uid}
+                movie={movie}
+              />
             ))}
           </ul>
         </section>
