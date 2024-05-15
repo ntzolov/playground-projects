@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import StarTrekMovies from "./components/StarTrekMovies";
+import StarTrekMovies from "./components/starTrekSection/StarTrekMovies";
 import { useLoading } from "./hooks/useLoading";
+import Bubbles from "./components/bubblesSection/Bubbles";
+import ToDo from "./components/notes/ToDo";
 
 function App() {
   const [isLoading, load] = useLoading();
@@ -31,6 +33,8 @@ function App() {
             TypeScript playground
           </h1>
           <StarTrekMovies />
+          <Bubbles />
+          <ToDo />
         </>
       )}
     </div>

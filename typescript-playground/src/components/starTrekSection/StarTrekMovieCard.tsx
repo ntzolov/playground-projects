@@ -1,4 +1,4 @@
-import type { MovieCardProps } from "../types/movies";
+import type { MovieCardProps } from "../../types/movies";
 
 export default function StarTrekMovieCard({
   movie,

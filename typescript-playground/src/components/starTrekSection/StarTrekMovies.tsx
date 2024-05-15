@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Movie } from "../types/movies";
+import type { Movie } from "../../types/movies";
 import StarTrekMovieCard from "./StarTrekMovieCard";
 
 export default function StarTrekMovies() {
@@ -23,7 +23,7 @@ export default function StarTrekMovies() {
 
   return (
     <>
-      <section className="mt-3 flex flex-col items-center gap-2">
+      <section className="mt-3 flex w-full flex-col items-center gap-2 border-b-4 border-gray-400 pb-3">
         <h2>Get a list for Star Trek movies</h2>
         <form className="flex justify-center gap-3" onSubmit={handleGetMovies}>
           <button
@@ -40,22 +40,22 @@ export default function StarTrekMovies() {
             Clear list
           </button>
         </form>
+        {movies.length > 0 && (
+          <section className="flex flex-col items-center gap-2">
+            <h3>Star Trek Movies</h3>
+            <ul className="flex flex-wrap justify-center gap-5">
+              {movies.map((movie) => (
+                <StarTrekMovieCard
+                  setFavorites={setFavorites}
+                  favorites={favorites}
+                  key={movie.uid}
+                  movie={movie}
+                />
+              ))}
+            </ul>
+          </section>
+        )}
       </section>
-      {movies.length > 0 && (
-        <section className="flex flex-col items-center gap-2">
-          <h3>Star Trek Movies</h3>
-          <ul className="flex flex-wrap justify-center gap-5">
-            {movies.map((movie) => (
-              <StarTrekMovieCard
-                setFavorites={setFavorites}
-                favorites={favorites}
-                key={movie.uid}
-                movie={movie}
-              />
-            ))}
-          </ul>
-        </section>
-      )}
     </>
   );
 }
