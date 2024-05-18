@@ -10,6 +10,7 @@ export default function ToDo() {
     setContent,
     notes,
     setNotes,
+    setNotesArray,
     secondsOnline,
     setSecondsOnline,
   } = userStore();
@@ -39,9 +40,25 @@ export default function ToDo() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (notes.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(notes));
+      console.log(notes);
+    }
+  }, [notes]);
+
+  useEffect(() => {
+    const notesFromLocalStorage = localStorage.getItem("notes");
+    if (notesFromLocalStorage) {
+      const notesFromLocalStorageArray = JSON.parse(notesFromLocalStorage);
+      setNotesArray(notesFromLocalStorageArray);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <section className="mt-3 flex w-full flex-col items-center gap-2 border-b-4 border-gray-400 pb-3">
-      <h2>Create a user</h2>
+      <h2>Create a note (save to localStorage)</h2>
       <form
         className="flex flex-col items-center gap-5"
         onSubmit={handleFormSubmit}
@@ -67,9 +84,19 @@ export default function ToDo() {
             onChange={handleContentSubmit}
           />
         </div>
-        <div className="flex items-stretch">
+        <div className="flex items-stretch gap-3">
           <button className="rounded-md bg-blue-500 px-3 py-1 text-white transition hover:bg-blue-600">
             Create note
+          </button>
+          <button
+            type="button"
+            className="rounded-md bg-orange-400 px-3 py-1 text-white transition hover:bg-orange-500"
+            onClick={() => {
+              localStorage.removeItem("notes");
+              setNotesArray([]);
+            }}
+          >
+            Delete your localStorage notes
           </button>
         </div>
       </form>
