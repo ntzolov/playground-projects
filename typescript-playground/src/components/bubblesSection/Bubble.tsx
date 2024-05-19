@@ -5,8 +5,6 @@ export default function Bubble({
   bubbleColor: string;
   bubbleSize: number;
 }) {
-  console.log(bubbleSize, bubbleColor);
-
   return (
     <div
       style={{

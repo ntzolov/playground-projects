@@ -43,7 +43,6 @@ export default function ToDo() {
   useEffect(() => {
     if (notes.length > 0) {
       localStorage.setItem("notes", JSON.stringify(notes));
-      console.log(notes);
     }
   }, [notes]);
 
@@ -66,7 +65,7 @@ export default function ToDo() {
         <div className="flex flex-col items-center gap-2">
           <label htmlFor="title"></label>
           <input
-            placeholder="Enter a title"
+            placeholder="Enter title"
             type="text"
             id="title"
             name="title"
@@ -77,7 +76,7 @@ export default function ToDo() {
         <div className="flex flex-col items-center gap-2">
           <label htmlFor="content"></label>
           <textarea
-            placeholder="Enter a text content"
+            placeholder="Enter text content"
             id="content"
             name="content"
             className="rounded-md border border-gray-400 bg-gray-100 p-1"
@@ -106,7 +105,7 @@ export default function ToDo() {
         ))}
       </div>
       <p>
-        Page rendered for:{" "}
+        <span className="font-semibold">Page rendered for:</span>{" "}
         {secondsOnline < 60
           ? secondsOnline
           : `${Math.floor(secondsOnline / 60)} minutes and ${secondsOnline % 60} seconds`}{" "}
